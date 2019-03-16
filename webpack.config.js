@@ -16,6 +16,9 @@ module.exports = {
         loader : 'babel-loader',      
         query: {
           presets: ['react', 'es2015']
+       },
+       options: {
+        "plugins": ["babel-plugin-styled-components"]
        }
       }
     ]
