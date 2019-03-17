@@ -15,6 +15,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "faker": "^4.1.0",
     "webpack": "^2.2.1"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
     "mysql": "^2.13.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "styled-components": "^4.1.3"
+    "styled-components": "^4.1.3",
+    "validator": "^10.11.0"
   }
 }
