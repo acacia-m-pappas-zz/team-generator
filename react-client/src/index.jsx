@@ -5,7 +5,6 @@ import dummy from './dummyData.js';
 import ClassList from './components/ClassList.jsx';
 import Groups from './components/Groups.jsx';
 import SplitInput from './components/SplitInput.jsx';
-import NewClassForm from './components/NewClassForm.jsx';
 import Login from './components/Login.jsx';
 
 class App extends React.Component {
@@ -14,9 +13,13 @@ class App extends React.Component {
     this.state = {
       loggedIn: false,
       all: [],
-      classes: []
+      classes: [],
+      class: {},
+      number: 0
     }
     this.login = this.login.bind(this);
+    this.updateClass = this.updateClass.bind(this);
+    this.groupBy = this.groupBy.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +30,6 @@ class App extends React.Component {
 
   login(email){
     var teachers = this.state.all;
-    var classesByTeacher;
     for(var i=0; i< teachers.length; i++){
       if(email === teachers[i].email){
         var newState = {
@@ -39,17 +41,32 @@ class App extends React.Component {
     }
   }
 
+  updateClass(eventName){
+    var classList = this.state.classes;
+    for(var i = 0; i < classList.length; i++){
+      if(classList[i].className === eventName){
+        this.setState({
+          class: classList[i]
+        })
+        return;
+      }
+    }
+  }
+
+  groupBy(num) {
+    this.setState({ number: num})
+  }
+
   render () {
-    console.log('dis clsses', this.state.classes)
+    console.log(this.state.class)
     return (
     <div>
       <h1>teamz4u :)</h1>
       <Login login={this.login}/>
 
-      <ClassList classes={this.state.classes}/>
-      <NewClassForm/>
+      <ClassList classes={this.state.classes} updateClass={this.updateClass}/>
 
-      <SplitInput data={this.state.data}/>
+      <SplitInput class={this.state.class} groupBy={this.groupBy}/>
       <Groups data={this.state.data}/>
     </div>)
   }

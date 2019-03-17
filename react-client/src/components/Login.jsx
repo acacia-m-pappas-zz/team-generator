@@ -1,5 +1,6 @@
 import React from 'react';
 import validator from 'validator';
+import NewClassForm from './NewClassForm.jsx'
 
 class Login extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class Login extends React.Component {
             </label>
             <input type="submit" value="view my classes"/>
           </form>
+          <NewClassForm/>
       </div>
     )
   }

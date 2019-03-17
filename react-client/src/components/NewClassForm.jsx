@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NewClassForm = (props) => (
-  <div>
+  <div>newww classs here
 
   </div>
 )
