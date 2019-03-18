@@ -18,18 +18,22 @@ class Groups extends React.Component {
   }
   
   render() {
-    return (
-        <div>
-          <div>Split {this.props.class.className} into groups of </div>
-            <form>
-              <label onChange={this.changeHandler}>
-                <input type="number" name="groupSize" min="1" max="10"/>
-              </label> 
-              {/* <SelectQualities teacher={this.props.teacher} changeHandler={this.changeHandler} /> */}
-              <input type="submit" value="GO" />
-            </form>
-        </div>
-      )
+    if(this.props.loggedIn === true){
+      return (
+          <div>
+            <div>Split {this.props.class.className} into groups of </div>
+              <form>
+                <label onChange={this.changeHandler}>
+                  <input type="number" name="groupSize" min="1" max="10"/>
+                </label> 
+                {/* <SelectQualities teacher={this.props.teacher} changeHandler={this.changeHandler} /> */}
+                <input type="submit" value="GO" />
+              </form>
+          </div>
+        )
+    } else {
+      return <div></div>
+    }
   }
 } 
 

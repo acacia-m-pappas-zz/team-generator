@@ -1,6 +1,13 @@
 import React from 'react';
 import validator from 'validator';
-import NewClassForm from './NewClassForm.jsx'
+import styled from 'styled-components';
+
+const LoginContainer = styled.form`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* align-items: center; */
+`;
 
 class Login extends React.Component {
   constructor(props) {
@@ -27,17 +34,14 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div>
-        <p>Enter a list of students to generate groups!</p>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Your Email:
+      <LoginContainer onSubmit={this.handleSubmit}>
+        <p>Login with your email:</p>
+          <label>
+              Email:
               <input type="text" name="name" value={this.state.email} onChange={this.changeHandler}/>
             </label>
-            <input type="submit" value="view my classes"/>
-          </form>
-          <NewClassForm/>
-      </div>
+          <input type="submit" value="view my classes"/>
+      </LoginContainer>
     )
   }
 } 

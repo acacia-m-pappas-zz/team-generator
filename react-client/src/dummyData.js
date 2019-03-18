@@ -4,6 +4,7 @@ module.exports = {
   teachers: [
     {
       email: 'MrsFrizzle@gmail.com',
+      qualities: ['qualatativeReasoning', 'quantatativeResoning'],
       classes: [
           { 
             className: 'magic school bus ride!',
@@ -60,6 +61,7 @@ module.exports = {
     
     {
       email: 'JoshElder@gmail.com',
+      qualities: ['EQ'],
       classes: [
         { 
             className: 'hrsf110',
@@ -68,32 +70,28 @@ module.exports = {
                 firstName: faker.name.firstName,
                 lastName: faker.name.lastName,
                 qualities: {
-                  'qualatativeReasoning': 1,
-                  'quantativeReasoning': 1
+                  'EQ' : 0
                 }
               },
               {
                 firstName: faker.name.firstName,
                 lastName: faker.name.lastName,
                 qualities: {
-                  'qualatativeReasoning': 1,
-                  'quantativeReasoning': 1
+                  'EQ' : 1
                 }
               },
               {
                 firstName: faker.name.firstName,
                 lastName: faker.name.lastName,
                 qualities: {
-                  'qualatativeReasoning': 5,
-                  'quantativeReasoning': 5
+                  'EQ' : 2
                 }
               },
               {
                 firstName: faker.name.firstName,
                 lastName: faker.name.lastName,
                 qualities: {
-                  'qualatativeReasoning': 2,
-                  'quantativeReasoning': 1
+                  'EQ' : 3
                 }
               }
             ]
@@ -103,6 +101,7 @@ module.exports = {
     },
     {
       email: 'Mya@gmail.com',
+      qualities: ['age'],
       classes: [
         { 
             className: 'hrsf111',
@@ -111,32 +110,28 @@ module.exports = {
                 firstName: 'Delos Montgomery',
                 lastName: 'Elder III',
                 qualities: {
-                  'qualatativeReasoning': 4,
-                  'quantativeReasoning': 4
+                  'age': 1
                 }
               },
               {
                 firstName: faker.name.firstName,
                 lastName: faker.name.lastName,
                 qualities: {
-                  'qualatativeReasoning': 1,
-                  'quantativeReasoning': 5
+                  'age': 3
                 }
               },
               {
                 firstName: faker.name.firstName,
                 lastName: faker.name.lastName,
                 qualities: {
-                  'qualatativeReasoning': 5,
-                  'quantativeReasoning': 3
+                  'age': 5
                 }
               },
               {
                 firstName: faker.name.firstName,
                 lastName: faker.name.lastName,
                 qualities: {
-                  'qualatativeReasoning': 1,
-                  'quantativeReasoning': 1
+                  'age': 4
                 }
               }
             ]
