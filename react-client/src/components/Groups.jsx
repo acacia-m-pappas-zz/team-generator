@@ -1,5 +1,4 @@
 import React from 'react';
-// import ListItem from './ListItem.jsx';
 
 const Groups = (props) => (
   <div>
