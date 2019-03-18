@@ -10,14 +10,18 @@ const ClassListContainer = styled.div`
   align-items: center;
 `;
 
+const ClassHeader = styled.h5`
+  
+`;
+
 const ClassList = (props) => {
-  if(props.loggedIn === true){
+  if(props.phase >= 1){
     return (
     <ClassListContainer>
-      <h4>My Classes</h4>
-      <p>Which class would you like to use? (click one)</p>
+      <ClassHeader>My Classes</ClassHeader>
+      <p>Select one of your classes</p>
       {props.classes.map(item => <ClassItem item={item} updateClass={props.updateClass}/>)}
-      <NewClassForm/>
+      {/* <NewClassForm/> */}
     </ClassListContainer>
     )
   } else {

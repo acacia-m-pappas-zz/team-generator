@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Groups = (props) => {
-  if(props.loggedIn === true){
+  console.log('in groups', props);
+  if(props.phase >= 3){
     return (
       <div>
-        <h4> '[current classname]' Groups </h4>
+        <h4> {this.props.class.className} Groups </h4>
           <div>
             <h4>Group 1</h4>
             <div>student1</div>

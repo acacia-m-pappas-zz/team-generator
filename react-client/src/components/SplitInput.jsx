@@ -1,5 +1,23 @@
 import React from 'react';
 import SelectQualities from './SelectQualities.jsx';
+import styled from 'styled-components';
+
+const SplitIntoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ClassName = styled.div`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
 
 class Groups extends React.Component {
   constructor(props){
@@ -12,24 +30,26 @@ class Groups extends React.Component {
   }
 
   changeHandler(e){
+    e.preventDefault();
+    console.log(e.target.name)
     this.setState({
-      [e.name]: e.target.value
+      [e.target.name]: e.target.value
     })
   }
   
   render() {
-    if(this.props.loggedIn === true){
+    if(this.props.phase >= 2){
       return (
-          <div>
-            <div>Split {this.props.class.className} into groups of </div>
-              <form>
-                <label onChange={this.changeHandler}>
-                  <input type="number" name="groupSize" min="1" max="10"/>
+          <SplitIntoContainer>
+            <h4>Split into groups of </h4>
+              <form >
+                <label>
+                  <input type="number" name="groupSize" value={this.state.groupSize} min="1" max="10" onChange={this.changeHandler}/>
                 </label> 
                 {/* <SelectQualities teacher={this.props.teacher} changeHandler={this.changeHandler} /> */}
-                <input type="submit" value="GO" />
+                <input type="button" value="GO" onClick={() => {this.props.groupBy(this.state.groupSize)}}/>
               </form>
-          </div>
+          </SplitIntoContainer>
         )
     } else {
       return <div></div>
