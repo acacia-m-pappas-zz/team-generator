@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from './axios.js';
 import styled from 'styled-components';
-import sorters from 'sortingMethods.js';
+import sorters from './sortingMethods.js';
 import dummy from './dummyData.js';
 import ClassList from './components/ClassList.jsx';
 import Groups from './components/Groups.jsx';
@@ -22,12 +22,7 @@ const Header = styled(Flex)`
 `;
 
 const Footer = styled(Flex)``;
-
-
-const Main = styled(Flex)`
-  
-  
-`;
+const Main = styled(Flex)``;
 
 class App extends React.Component {
   constructor(props) {
@@ -36,10 +31,10 @@ class App extends React.Component {
       phase: 0,
       all: [],
       classes: [],
-      class: {},
-      groups: [],
+      students: [],
       teacher: {},
-      number: 0
+      number: 0,
+      groups: []
     }
     this.login = this.login.bind(this);
     this.updateClass = this.updateClass.bind(this);
@@ -73,15 +68,14 @@ class App extends React.Component {
       if(classList[i].className === eventName){
         this.setState({
           phase: 2,
-          class: classList[i]
+          students: classList[i].students
         })
-        return;
-      }
+      } 
     }
   }
 
   groupBy(num) {
-    var groups = sorters.random(this.state.class, num);
+    var groups = sorters.random(this.state.students, num);
     this.setState({ 
       phase: 3,
       groups: groups
@@ -89,7 +83,7 @@ class App extends React.Component {
   }
 
   render () {
-    console.log(this.state.number, this.state.class)
+    console.log(this.state.groups);
     return (
       <div>
         <Header>
@@ -97,14 +91,14 @@ class App extends React.Component {
           src="http://images.clipartpanda.com/team-clipart-kids-team-clipart-gallery.jpg"
           alt="teams" />
           <h1>teamz4u</h1>  
-          <p>A group generator for teachers.</p>      
+          <p>A team generator for teachers.</p>      
         </Header>
 
         <Main>
           <Login login={this.login}/>
           <ClassList classes={this.state.classes} updateClass={this.updateClass} phase={this.state.phase}/>
           <SplitInput class={this.state.class} groupBy={this.groupBy} teacher={this.state.teacher} phase={this.state.phase}/>
-          <Groups class={this.state.data} phase={this.state.phase}/>
+          <Groups students={this.state.students} phase={this.state.phase}/>
         </Main>        
         <Footer>
         </Footer>

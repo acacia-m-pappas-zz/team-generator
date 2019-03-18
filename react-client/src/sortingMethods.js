@@ -3,7 +3,7 @@ module.exports = {
     var shuffled = shuffle(students);
     var result = [];
     while (shuffled.length > 0)
-    result.push(a.splice(0, size));
+    result.push(shuffled.splice(0, size));
     return result;
   }
 }

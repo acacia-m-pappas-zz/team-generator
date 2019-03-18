@@ -10,32 +10,72 @@ module.exports = {
             className: 'magic school bus ride!',
             students: [
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'qualatativeReasoning': 1,
                   'quantativeReasoning': 3
                 }
               },
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'qualatativeReasoning': 1,
                   'quantativeReasoning': 1
                 }
               },
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'qualatativeReasoning': 5,
                   'quantativeReasoning': 5
                 }
               },
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'qualatativeReasoning': 2,
                   'quantativeReasoning': 1
@@ -60,7 +100,7 @@ module.exports = {
     },
     
     {
-      email: 'JoshElder@gmail.com',
+      email: 'teacher1@gmail.com',
       qualities: ['EQ'],
       classes: [
         { 
@@ -93,6 +133,71 @@ module.exports = {
                 qualities: {
                   'EQ' : 3
                 }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 1,
+                  'quantativeReasoning': 3
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 1,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'EQ': 3
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'EQ': 2
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'EQ':0
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'EQ': 5
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'EQ': 3
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'EQ': 2
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'EQ': 4
+                }
               }
             ]
         }
@@ -100,7 +205,7 @@ module.exports = {
 
     },
     {
-      email: 'Mya@gmail.com',
+      email: 'teacher2@gmail.com',
       qualities: ['age'],
       classes: [
         { 
