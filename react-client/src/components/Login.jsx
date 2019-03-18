@@ -17,10 +17,15 @@ class Login extends React.Component {
     }
     this.changeHandler = this.changeHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
   
   changeHandler(e) {
     this.setState({email: e.target.value});
+  }
+
+  clickHandler(e){
+    console.log('clicked!')
   }
 
   handleSubmit(e) {
@@ -35,12 +40,12 @@ class Login extends React.Component {
   render () {
     return (
       <LoginContainer onSubmit={this.handleSubmit}>
-        <p>Login with your email:</p>
+        <p>Enter your email:</p>
           <label>
-              Email:
               <input type="text" name="name" value={this.state.email} onChange={this.changeHandler}/>
             </label>
           <input type="submit" value="view my classes"/>
+          <input type="button" value="add a class" onClick={this.clickHandler}/>
       </LoginContainer>
     )
   }

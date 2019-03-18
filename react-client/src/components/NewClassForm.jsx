@@ -1,9 +1,10 @@
 import React from 'react';
 
-const NewClassForm = (props) => (
-  <div>newww classs here
-
-  </div>
-)
+class NewClassForm extends React.Component {
+  constructor(props){
+    super(props)
+    this.state
+  }
+}
 
 export default NewClassForm;

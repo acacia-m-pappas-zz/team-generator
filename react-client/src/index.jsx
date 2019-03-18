@@ -82,8 +82,14 @@ class App extends React.Component {
     })
   }
 
+  newClass(){
+    this.setState({
+      phase: 'form'
+    })
+  }
+
   render () {
-    console.log(this.state.groups);
+    console.log('groups', this.state.groups);
     return (
       <div>
         <Header>
@@ -98,7 +104,7 @@ class App extends React.Component {
           <Login login={this.login}/>
           <ClassList classes={this.state.classes} updateClass={this.updateClass} phase={this.state.phase}/>
           <SplitInput class={this.state.class} groupBy={this.groupBy} teacher={this.state.teacher} phase={this.state.phase}/>
-          <Groups students={this.state.students} phase={this.state.phase}/>
+          <Groups groups={this.state.groups} phase={this.state.phase}/>
         </Main>        
         <Footer>
         </Footer>
