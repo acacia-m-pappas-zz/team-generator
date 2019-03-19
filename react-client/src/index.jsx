@@ -7,7 +7,9 @@ import dummy from './dummyData.js';
 import ClassList from './components/ClassList.jsx';
 import Groups from './components/Groups.jsx';
 import SplitInput from './components/SplitInput.jsx';
+import newClassForm from './components/NewClassForm.jsx';
 import Login from './components/Login.jsx';
+import NewClassForm from './components/NewClassForm.jsx';
 
 const Flex = styled.div`
   width: 100%;
@@ -23,6 +25,9 @@ const Header = styled(Flex)`
 
 const Footer = styled(Flex)``;
 const Main = styled(Flex)``;
+const AddClass = styled.button`
+  margin: 1px;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -39,6 +44,7 @@ class App extends React.Component {
     this.login = this.login.bind(this);
     this.updateClass = this.updateClass.bind(this);
     this.groupBy = this.groupBy.bind(this);
+    this.newClass = this.newClass.bind(this);
   }
 
   componentDidMount() {
@@ -83,13 +89,13 @@ class App extends React.Component {
   }
 
   newClass(){
+    console.log('newClass clicked');
     this.setState({
       phase: 'form'
     })
   }
 
   render () {
-    console.log('groups', this.state.groups);
     return (
       <div>
         <Header>
@@ -101,7 +107,9 @@ class App extends React.Component {
         </Header>
 
         <Main>
-          <Login login={this.login}/>
+          <Login login={this.login} newClass={this.newClass}/>
+          <AddClass onClick={this.newClass}>add a class</AddClass>
+          <NewClassForm phase={this.state.phase}/>
           <ClassList classes={this.state.classes} updateClass={this.updateClass} phase={this.state.phase}/>
           <SplitInput class={this.state.class} groupBy={this.groupBy} teacher={this.state.teacher} phase={this.state.phase}/>
           <Groups groups={this.state.groups} phase={this.state.phase}/>

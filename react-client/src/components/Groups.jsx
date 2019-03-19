@@ -10,7 +10,6 @@ const GroupContainer = styled.div`
 `;
 
 const Groups = (props) => {
-  console.log('props in groups', props);
   if(props.phase >= 3){
     return (
       <GroupContainer>

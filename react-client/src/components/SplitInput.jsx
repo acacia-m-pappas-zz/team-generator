@@ -2,7 +2,7 @@ import React from 'react';
 import SelectQualities from './SelectQualities.jsx';
 import styled from 'styled-components';
 
-const SplitIntoContainer = styled.div`
+const SplitInputContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -10,16 +10,7 @@ const SplitIntoContainer = styled.div`
   align-items: center;
 `;
 
-const ClassName = styled.div`
-  color: palevioletred;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-`;
-
-class Groups extends React.Component {
+class SplitInput extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -39,7 +30,7 @@ class Groups extends React.Component {
   render() {
     if(this.props.phase >= 2){
       return (
-          <SplitIntoContainer>
+          <SplitInputContainer>
             <h4>Split into groups of </h4>
               <form >
                 <label>
@@ -48,7 +39,7 @@ class Groups extends React.Component {
                 {/* <SelectQualities teacher={this.props.teacher} changeHandler={this.changeHandler} /> */}
                 <input type="button" value="GO" onClick={() => {this.props.groupBy(this.state.groupSize)}}/>
               </form>
-          </SplitIntoContainer>
+          </SplitInputContainer>
         )
     } else {
       return <div></div>
@@ -56,4 +47,4 @@ class Groups extends React.Component {
   }
 } 
 
-export default Groups;
+export default SplitInput;
