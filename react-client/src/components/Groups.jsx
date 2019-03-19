@@ -10,23 +10,23 @@ const GroupContainer = styled.div`
 `;
 
 const Groups = (props) => {
-  if(props.phase >= 3){
+  if (props.phase >= 3) {
     return (
       <GroupContainer>
         {props.groups.map((group, index) => {
-            return (
-              <div key={index}>
-                <ul></ul>
-               {
+          return (
+            <div key={index}>
+              <ul></ul>
+              {
                 group.map((subitem, i) => {
                   return (
-                     <div>{subitem.firstName}</div>
+                    <div>{subitem.firstName}</div>
                   )
                 })
-               }
-              </div>
-            )
-          })
+              }
+            </div>
+          )
+        })
         }
       </GroupContainer>
     )

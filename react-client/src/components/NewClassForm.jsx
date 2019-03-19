@@ -10,9 +10,9 @@ const Form1 = styled.form`
 `;
 
 class NewClassForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state ={
+    this.state = {
       formPhase: 0,
       classSize: 0,
       firstName: '',
@@ -23,13 +23,14 @@ class NewClassForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  next(){
+  next() {
+    console.log(this.state.formPhase += 1)
     this.setState({
-      formPhase: this.state.formPhase +=1
+      formPhase: this.state.formPhase += 1
     })
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     this.next()
     console.log('submitted')
@@ -47,22 +48,28 @@ class NewClassForm extends React.Component {
   }
 
   render() {
-    if(this.props.phase === 'form'){
-      if(this.state.formPhase === 0){
+    if (this.props.phase === 'form') {
+      if (this.state.formPhase === 0) {
         return (
           <Form1 onSubmit={this.handleSubmit}>
-          <label>
-            What is this class called? 
+            <label>
+              What is this class called?
             <input
-              name="className"
-              type="text"
-              value={this.state.className}
-              onChange={this.handleInputChange} />
-          </label>
-          <br />
+                name="className"
+                type="text"
+                value={this.state.className || ''}
+                onChange={this.handleInputChange} />
+            </label>
+            <input type="submit" value="Next" />
+          </Form1>
+        )
+      } 
+      if (this.state.formPhase === 1) {
+        return (
+        <Form1 onSubmit={this.handleSubmit}>
           <label>
-            How many students would you like to add? 
-            <input
+            How many students would you like to add?
+          <input
               name="classSize"
               type="number"
               min="1"
@@ -73,18 +80,21 @@ class NewClassForm extends React.Component {
           <input type="submit" value="Next" />
         </Form1>
         )
-      } else if (this.state.formPhase === 1){
-        var students = Array(this.state.classSize)
-        students.map((item) => {
-          return (<div>
-            form element here
-          </div>)
-        })
+      } 
+      if (this.state.formPhase === 2) {
+          {var students = Array(this.state.classSize)
+          students.map((item) => {
+            return (
+              <div>
+                form element here
+              </div>)
+          })}
       }
     } else {
       return <div></div>
     }
   }
- }
+}
+
 
 export default NewClassForm;

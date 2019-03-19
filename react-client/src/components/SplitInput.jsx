@@ -11,7 +11,7 @@ const SplitInputContainer = styled.div`
 `;
 
 class SplitInput extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       groupSize: 1,
@@ -20,31 +20,31 @@ class SplitInput extends React.Component {
     this.changeHandler = this.changeHandler.bind(this);
   }
 
-  changeHandler(e){
+  changeHandler(e) {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
     })
   }
-  
+
   render() {
-    if(this.props.phase >= 2){
+    if (this.props.phase >= 2) {
       return (
-          <SplitInputContainer>
-            <h4>Split into groups of </h4>
-              <form >
-                <label>
-                  <input type="number" name="groupSize" value={this.state.groupSize} min="1" max="10" onChange={this.changeHandler}/>
-                </label> 
-                {/* <SelectQualities teacher={this.props.teacher} changeHandler={this.changeHandler} /> */}
-                <input type="button" value="GO" onClick={() => {this.props.groupBy(this.state.groupSize)}}/>
-              </form>
-          </SplitInputContainer>
-        )
+        <SplitInputContainer>
+          <h4>Split into groups of </h4>
+          <form >
+            <label>
+              <input type="number" name="groupSize" value={this.state.groupSize} min="1" max="10" onChange={this.changeHandler} />
+            </label>
+            {/* <SelectQualities teacher={this.props.teacher} changeHandler={this.changeHandler} /> */}
+            <input type="button" value="GO" onClick={() => { this.props.groupBy(this.state.groupSize) }} />
+          </form>
+        </SplitInputContainer>
+      )
     } else {
       return <div></div>
     }
   }
-} 
+}
 
 export default SplitInput;

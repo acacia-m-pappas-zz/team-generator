@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const GroupItem = (props) => {
   console.log('props in item', props);
   return (
-      <div>student names</div>
-    )
+    <div>student names</div>
+  )
 }
 
 
