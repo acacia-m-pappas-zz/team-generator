@@ -80,6 +80,78 @@ module.exports = {
                   'qualatativeReasoning': 2,
                   'quantativeReasoning': 1
                 }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 1,
+                  'quantativeReasoning': 3
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 1,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 5,
+                  'quantativeReasoning': 5
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
+              },
+              {
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
+                qualities: {
+                  'qualatativeReasoning': 2,
+                  'quantativeReasoning': 1
+                }
               }
             ]
         },
@@ -107,29 +179,29 @@ module.exports = {
             className: 'hrsf110',
             students: [
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'EQ' : 0
                 }
               },
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'EQ' : 1
                 }
               },
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'EQ' : 2
                 }
               },
               {
-                firstName: faker.name.firstName,
-                lastName: faker.name.lastName,
+                firstName: faker.name.firstName(),
+                lastName: faker.name.lastName(),
                 qualities: {
                   'EQ' : 3
                 }

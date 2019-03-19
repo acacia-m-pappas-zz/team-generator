@@ -19,10 +19,7 @@ const Flex = styled.div`
   align-items: center;
 `;
 
-const Header = styled(Flex)`
-  border: solid grey; 
-`;
-
+const Header = styled(Flex)``;
 const Footer = styled(Flex)``;
 const Main = styled(Flex)``;
 const AddClass = styled.button`
@@ -89,7 +86,6 @@ class App extends React.Component {
   }
 
   newClass() {
-    console.log('newClass clicked');
     this.setState({
       phase: 'form'
     })
@@ -109,10 +105,18 @@ class App extends React.Component {
         <Main>
           <Login login={this.login} newClass={this.newClass} />
           <AddClass onClick={this.newClass}>add a class</AddClass>
-          <NewClassForm phase={this.state.phase} />
-          <ClassList classes={this.state.classes} updateClass={this.updateClass} phase={this.state.phase} />
-          <SplitInput class={this.state.class} groupBy={this.groupBy} teacher={this.state.teacher} phase={this.state.phase} />
-          <Groups groups={this.state.groups} phase={this.state.phase} />
+          {this.state.phase === 'form' && 
+            <NewClassForm phase={this.state.phase} />
+          }
+          {this.state.phase === 1 &&
+            <ClassList classes={this.state.classes} updateClass={this.updateClass} phase={this.state.phase} />
+          }
+          {this.state.phase === 2 &&
+            <SplitInput students={this.state.students} groupBy={this.groupBy} teacher={this.state.teacher} phase={this.state.phase} />
+          }
+          {this.state.phase === 3 &&
+            <Groups groups={this.state.groups} phase={this.state.phase} />
+          }
         </Main>
         <Footer>
         </Footer>

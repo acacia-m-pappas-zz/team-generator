@@ -10,29 +10,27 @@ const GroupContainer = styled.div`
 `;
 
 const Groups = (props) => {
-  if (props.phase >= 3) {
-    return (
-      <GroupContainer>
-        {props.groups.map((group, index) => {
-          return (
-            <div key={index}>
-              <ul></ul>
-              {
-                group.map((subitem, i) => {
-                  return (
-                    <div>{subitem.firstName}</div>
-                  )
-                })
-              }
-            </div>
-          )
-        })
-        }
-      </GroupContainer>
-    )
-  } else {
-    return <div></div>
-  }
-}
+  return (
+    <GroupContainer>
+      <h4>Your Groups</h4>
+      {props.groups.map((group, index) => {
+        return (
+          <div key={index}>
+            <ul></ul>
+            {
+              group.map((subitem, i) => {
+                return (
+                  <div key={i}>{`${subitem.firstName} ${subitem.lastName}`}</div>
+                )
+              })
+            }
+          </div>
+        )
+      })
+      }
+    </GroupContainer>
+  )
+} 
+
 
 export default Groups;

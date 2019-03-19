@@ -1,5 +1,4 @@
 import React from 'react';
-import SelectQualities from './SelectQualities.jsx';
 import styled from 'styled-components';
 
 const SplitInputContainer = styled.div`
@@ -28,23 +27,24 @@ class SplitInput extends React.Component {
   }
 
   render() {
-    if (this.props.phase >= 2) {
-      return (
-        <SplitInputContainer>
-          <h4>Split into groups of </h4>
-          <form >
-            <label>
-              <input type="number" name="groupSize" value={this.state.groupSize} min="1" max="10" onChange={this.changeHandler} />
-            </label>
-            {/* <SelectQualities teacher={this.props.teacher} changeHandler={this.changeHandler} /> */}
-            <input type="button" value="GO" onClick={() => { this.props.groupBy(this.state.groupSize) }} />
-          </form>
-        </SplitInputContainer>
-      )
-    } else {
-      return <div></div>
-    }
+    return (
+      <SplitInputContainer>
+        <h4>Split into groups of </h4>
+        <form >
+          <label>
+            <input type="number" name="groupSize" value={this.state.groupSize} min="2" max="10" onChange={this.changeHandler} />
+          </label>
+          <input type="button" value="GO" onClick={() => { this.props.groupBy(this.state.groupSize) }} />
+        </form>
+        <div>
+          {this.props.students.map((student, i) => {
+            return <div key={i} >{`${student.firstName} ${student.lastName}`}</div>
+          })}
+        </div>
+      </SplitInputContainer>
+    )
   }
 }
+
 
 export default SplitInput;

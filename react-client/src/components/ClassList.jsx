@@ -10,16 +10,13 @@ const ClassListContainer = styled.div`
 `;
 
 const ClassList = (props) => {
-  if (props.phase >= 1) {
-    return (
-      <ClassListContainer>
-        <h4>Select a class </h4>
-        {props.classes.map(item => <ClassItem item={item} updateClass={props.updateClass} />)}
-      </ClassListContainer>
-    )
-  } else {
-    return <div></div>
-  }
-}
+  return (
+    <ClassListContainer>
+      <h4>Select a class </h4>
+      {props.classes.map(item => <ClassItem key={item.className} item={item} updateClass={props.updateClass} />)}
+    </ClassListContainer>
+  )
+} 
+
 
 export default ClassList;
