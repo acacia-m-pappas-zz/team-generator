@@ -68,7 +68,6 @@ class App extends React.Component {
   }
 
   login(email) {
-    if(this.state.phase === 0){
       var teachers = this.state.all;
       for (var i = 0; i < teachers.length; i++) {
         if (email === teachers[i].email) {
@@ -81,9 +80,6 @@ class App extends React.Component {
           return;
         }
       }
-    } else {
-      this.setState({ phase: 1})
-    }
   }
 
   updateClass(eventName) {
