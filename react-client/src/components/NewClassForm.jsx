@@ -1,17 +1,15 @@
 import React from 'react';
 import axios from './../axios.js';
 import styled from 'styled-components';
-import StudentInput from './StudentInputForm.jsx';
+import StudentInputForm from './StudentInputForm.jsx';
 
-const AddStudents = styled.div`
+const AddStudentsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
   margin: 5px;
 `;
-
-const StudentForm = styled(AddStudents)``;
 
 const AddClassForm = styled.form`
   display: flex;
@@ -21,7 +19,7 @@ const AddClassForm = styled.form`
   margin: 5px;
 `;
 
-const AddStudentForm = styled.form`
+const AddStudentDiv = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -56,9 +54,10 @@ const Button = styled.input`
   }
 `;
 
-const Button2 = styled(Button)``;
-const Button3 = styled(Button)``;
+const StudentItem = styled.div`
 
+`;
+const ButtonPostClass = styled(Button)``;
 const ClassTitle = styled.h4``;
 
 class NewClassForm extends React.Component {
@@ -67,14 +66,12 @@ class NewClassForm extends React.Component {
     this.state = {
       formPhase: 0,
       className:'',
-      newClass: [],
-      firstName: '',
-      lastName: ''
+      newClass: []
     }
     this.next = this.next.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.addStudent = this.addStudent.bind(this);
+    this.addStudentToClass = this.addStudentToClass.bind(this);
     this.postClass = this.postClass.bind(this);
   }
 
@@ -101,35 +98,32 @@ class NewClassForm extends React.Component {
     });
   }
 
-  addStudent(e){
-    e.preventDefault();
-    var addedStudent = this.state.newClass.concat([{
-      firstName: this.state.firstName,
-      lastName: this.state.lastName
-    }])
-    console.log('added')
-    // this.setState({ 
-    //   formPhase: 1,
-    //   newClass: addedStudent,
-    //   firstName: '',
-    //   lastName: ''
-    // });
+  addStudentToClass(student){
+    var currentStudents = this.state.newClass;
+    var addedStudent = currentStudents.concat(student)
+    console.log('added Student', addedStudent)
+    this.setState({ 
+      newClass: addedStudent,
+    });
   }
 
   postClass(e){
     e.preventDefault();
-    //axios post here to send object below
+    if(this.newClass.length === 0){
+      alert('Please add students');
+    }
     var createdClass = {
       className: this.state.className,
       students: this.state.newClass
     }
+    //axios post here to send object below
     console.log('class posted', createdClass)
   }
 
   render() {
     console.log('state in class form', this.state)
       return (
-        <AddStudents>
+        <AddStudentsContainer>
           {this.state.formPhase === 0 &&
           <AddClassForm onSubmit={this.handleSubmit}>
             <ClassName>
@@ -144,21 +138,19 @@ class NewClassForm extends React.Component {
           </AddClassForm>
           }
           {this.state.formPhase === 1 && 
-            <AddStudentForm>
+            <AddStudentDiv>
               <ClassTitle>Students of {this.state.className}</ClassTitle>
               {
                 this.state.newClass.map((student, i) => {
                   return <StudentItem key={i}>{`${student.firstName} ${student.lastName}`}</StudentItem>
                 })
               }
-              <StudentForm onSubmit={this.addStudent}>
-                <StudentInput state={this.state} handleChange={this.handleInputChange}/>
-                <Button2 type="submit" value="Add Student" />
-                <Button3 type="button" value="I'm done adding students" onClick={this.postClass}/>
-              </StudentForm>
-            </AddStudentForm>
+                <StudentInputForm addStudentToClass={this.addStudentToClass}/>
+
+                <ButtonPostClass type="button" value="I'm done adding students" onClick={this.postClass}/>
+            </AddStudentDiv>
           }
-        </AddStudents>
+        </AddStudentsContainer>
       )
     } 
 }
