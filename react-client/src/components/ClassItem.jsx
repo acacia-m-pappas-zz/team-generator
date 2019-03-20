@@ -3,12 +3,16 @@ import styled from 'styled-components';
 
 //make them all look like buttons
 const Class = styled.div`
-color: palevioletred;
-font-size: 1em;
-margin: 1px;
-padding: 0.25em 1em;
-border: 2px solid palevioletred;
-border-radius: 3px;
+  color: grey;
+  font-size: 1em;
+  margin: 1px;
+  padding: 0.40em 1.3em;
+  border: 2px solid grey;
+  border-radius: 3px;
+  :hover {
+    background-color: #993399;
+    color: white;
+  }
 `;
 
 const ClassItem = (props) => (

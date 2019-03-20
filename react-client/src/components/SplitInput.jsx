@@ -27,22 +27,27 @@ class SplitInput extends React.Component {
   }
 
   render() {
-    return (
-      <SplitInputContainer>
-        <h4>Split into groups of </h4>
-        <form >
-          <label>
-            <input type="number" name="groupSize" value={this.state.groupSize} min="2" max="10" onChange={this.changeHandler} />
-          </label>
-          <input type="button" value="GO" onClick={() => { this.props.groupBy(this.state.groupSize) }} />
-        </form>
-        <div>
-          {this.props.students.map((student, i) => {
-            return <div key={i} >{`${student.firstName} ${student.lastName}`}</div>
-          })}
-        </div>
-      </SplitInputContainer>
-    )
+    console.log(this.props.students)
+    if(this.props.students.length === undefined){
+      <div>please add a class</div>
+    } else {
+      return (
+        <SplitInputContainer>
+          <h4>Split into groups of </h4>
+          <form >
+            <label>
+              <input type="number" name="groupSize" value={this.state.groupSize} min="2" max="10" onChange={this.changeHandler} />
+            </label>
+            <input type="button" value="GO" onClick={() => { this.props.groupBy(this.state.groupSize) }} />
+          </form>
+          <div>
+            {this.props.students.map((student, i) => {
+              return <div key={i} >{`${student.firstName} ${student.lastName}`}</div>
+            })}
+          </div>
+        </SplitInputContainer>
+      )
+    }
   }
 }
 

@@ -11,8 +11,11 @@ import newClassForm from './components/NewClassForm.jsx';
 import Login from './components/Login.jsx';
 import NewClassForm from './components/NewClassForm.jsx';
 
+const All = styled.div`
+  font-family: Arial, Helvetica, sans-serif; 
+`;
+
 const Flex = styled.div`
-  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -23,7 +26,21 @@ const Header = styled(Flex)``;
 const Footer = styled(Flex)``;
 const Main = styled(Flex)``;
 const AddClass = styled.button`
-  margin: 1px;
+  color: white;
+  background-color: grey; 
+  font-size: 1em;
+  margin: 4px;
+  padding: 0.3em 1em;
+  border-radius: 3px;
+  :hover {
+    background-color: #993399;
+    color: grey;
+  }
+`;
+
+const P = styled.p`
+  font-style: italic; 
+  padding: 2px;
 `;
 
 class App extends React.Component {
@@ -51,29 +68,37 @@ class App extends React.Component {
   }
 
   login(email) {
-    var teachers = this.state.all;
-    for (var i = 0; i < teachers.length; i++) {
-      if (email === teachers[i].email) {
-        var newState = {
-          phase: 1,
-          teacher: teachers[i],
-          classes: teachers[i].classes
+    if(this.state.phase === 0){
+      var teachers = this.state.all;
+      for (var i = 0; i < teachers.length; i++) {
+        if (email === teachers[i].email) {
+          var newState = {
+            phase: 1,
+            teacher: teachers[i],
+            classes: teachers[i].classes
+          }
+          this.setState(newState)
+          return;
         }
-        this.setState(newState)
-        return;
       }
+    } else {
+      this.setState({ phase: 1})
     }
   }
 
   updateClass(eventName) {
-    var classList = this.state.classes;
-    for (var i = 0; i < classList.length; i++) {
-      if (classList[i].className === eventName) {
-        this.setState({
-          phase: 2,
-          students: classList[i].students
-        })
+    if(this.state.phase === 1){
+      var classList = this.state.classes;
+      for (var i = 0; i < classList.length; i++) {
+        if (classList[i].className === eventName) {
+          this.setState({
+            phase: 2,
+            students: classList[i].students
+          })
+        }
       }
+    } else {
+      this.setState({ phase: 2 })
     }
   }
 
@@ -93,25 +118,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <All>
         <Header>
           <img className="teamImg"
             src="http://images.clipartpanda.com/team-clipart-kids-team-clipart-gallery.jpg"
             alt="teams" />
           <h1>teamz4u</h1>
-          <p>A team generator for teachers.</p>
+          <P>A team generator for teachers.</P>
+          
         </Header>
 
         <Main>
           <Login login={this.login} newClass={this.newClass} />
-          <AddClass onClick={this.newClass}>add a class</AddClass>
+          <AddClass onClick={this.newClass}>Add a Class</AddClass>
           {this.state.phase === 'form' && 
             <NewClassForm phase={this.state.phase} />
           }
           {this.state.phase === 1 &&
             <ClassList classes={this.state.classes} updateClass={this.updateClass} phase={this.state.phase} />
           }
-          {this.state.phase === 2 &&
+          {this.state.phase === 2 && 
             <SplitInput students={this.state.students} groupBy={this.groupBy} teacher={this.state.teacher} phase={this.state.phase} />
           }
           {this.state.phase === 3 &&
@@ -120,7 +146,7 @@ class App extends React.Component {
         </Main>
         <Footer>
         </Footer>
-      </div>
+      </All>
     )
   }
 }

@@ -4,10 +4,38 @@ import styled from 'styled-components';
 
 const LoginContainer = styled.form`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   flex-direction: column;
-  /* align-items: center; */
 `;
+
+const Input = styled.input`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 3px;
+  width: 200px; 
+  height: 22px;
+  margin: 5px; 
+`;
+
+const Button = styled.input`
+  color: white;
+  background-color: grey; 
+  font-size: 1em;
+  margin: 4px;
+  padding: 0.3em 1em;
+  border-radius: 3px;
+  :hover {
+    background-color: #993399;
+    color: grey;
+  }
+`;
+
+const Label = styled.label`
+  font-weight: bold;
+`;
+
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -35,11 +63,10 @@ class Login extends React.Component {
   render () {
     return (
       <LoginContainer onSubmit={this.handleSubmit}>
-        <p>Enter your email:</p>
-          <label>
-              <input type="text" name="name" value={this.state.email} onChange={this.changeHandler}/>
-            </label>
-          <input type="submit" value="view my classes"/>
+          <Label> Enter your email:
+              <Input type="text" name="name" value={this.state.email} onChange={this.changeHandler}/>
+            </Label>
+          <Button type="submit" value="View My Classes"></Button>
       </LoginContainer>
     )
   }
