@@ -109,7 +109,7 @@ class NewClassForm extends React.Component {
 
   postClass(e){
     e.preventDefault();
-    if(this.newClass.length === 0){
+    if(this.state.newClass.length === undefined){
       alert('Please add students');
     }
     var createdClass = {
@@ -121,7 +121,6 @@ class NewClassForm extends React.Component {
   }
 
   render() {
-    console.log('state in class form', this.state)
       return (
         <AddStudentsContainer>
           {this.state.formPhase === 0 &&

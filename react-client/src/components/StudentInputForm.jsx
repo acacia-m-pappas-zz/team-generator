@@ -43,6 +43,7 @@ class StudentInputForm extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.clear = this.clear.bind(this);
   }
 
   handleChange(event) {
@@ -58,6 +59,14 @@ class StudentInputForm extends React.Component {
   onSubmit(e){
     e.preventDefault();
     this.props.addStudentToClass(this.state);
+    this.clear();
+  }
+
+  clear(){
+    this.setState({
+      firstName: '',
+      lastName: ''
+    })
   }
 
   render () {
