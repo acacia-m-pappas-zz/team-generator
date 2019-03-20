@@ -16,29 +16,15 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+## teamz4u  ##
+  > A simple web app that generates teams. 
 
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Teachers have little time and a lot of people to manage. They often need create small groups for activities. This simple app will allow them to add their classes and generate groups of any size at any time. 
 
-## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Enter the class roster once and generate teams of any size for the rest of the year. The user selects the size of the small group, from pairs of two to groups of ten. 
 
-## Problem ##
-  > Describe the problem your product solves.
+  > “Generate teams or groups on the go, anytime, anywhere!” --CEO of  teamz4u
 
-## Solution ##
-  > Describe how your product elegantly solves the problem.
+  >“It’s saved me hours in total this year, and it’s great in a pinch!” -- random teacher #1
 
-## Quote from You ##
-  > A quote from a spokesperson in your company.
-
-## How to Get Started ##
-  > Describe how easy it is to get started.
-
-## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
-## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Visit http://localhost:3000 to see it in action! 
