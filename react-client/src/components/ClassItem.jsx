@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-//make them all look like buttons
 const Class = styled.div`
   color: grey;
   font-size: 1em;

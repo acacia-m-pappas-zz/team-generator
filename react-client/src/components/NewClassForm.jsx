@@ -3,14 +3,63 @@ import axios from './../axios.js';
 import styled from 'styled-components';
 import StudentInput from './StudentInputForm.jsx';
 
-const ClassName = styled.form`
+const AddStudents = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
+  margin: 5px;
 `;
 
-const StudentForm = styled(ClassName)``;
+const StudentForm = styled(AddStudents)``;
+
+const AddClassForm = styled.form`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+`;
+
+const AddStudentForm = styled.form`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+`;
+
+const ClassName = styled.label`
+  font-weight: bold; 
+`;
+
+const ClassInput = styled.input`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 3px;
+  width: 200px; 
+  height: 22px;
+  margin: 5px; 
+`;
+
+const Button = styled.input`
+  color: white;
+  background-color: grey; 
+  font-size: 1em;
+  margin: 4px;
+  padding: 0.3em 1em;
+  border-radius: 3px;
+  :hover {
+    background-color: #993399;
+    color: white;
+  }
+`;
+
+const Button2 = styled(Button)``;
+const Button3 = styled(Button)``;
+
+const ClassTitle = styled.h4``;
 
 class NewClassForm extends React.Component {
   constructor(props) {
@@ -58,14 +107,17 @@ class NewClassForm extends React.Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName
     }])
-    this.setState({ 
-      newClass: addedStudent,
-      firstName: '',
-      lastName: ''
-    });
+    console.log('added')
+    // this.setState({ 
+    //   formPhase: 1,
+    //   newClass: addedStudent,
+    //   firstName: '',
+    //   lastName: ''
+    // });
   }
 
   postClass(e){
+    e.preventDefault();
     //axios post here to send object below
     var createdClass = {
       className: this.state.className,
@@ -77,36 +129,36 @@ class NewClassForm extends React.Component {
   render() {
     console.log('state in class form', this.state)
       return (
-        <div>
+        <AddStudents>
           {this.state.formPhase === 0 &&
-          <ClassName onSubmit={this.handleSubmit}>
-            <label>
+          <AddClassForm onSubmit={this.handleSubmit}>
+            <ClassName>
               Class Name:
-              <input
+              <ClassInput
                 name="className"
                 type="text"
                 value={this.state.className || ''}
                 onChange={this.handleInputChange} />
-            </label>
-            <input type="submit" value="Next" required />
-          </ClassName>
+            </ClassName>
+            <Button type="submit" value="Next" required/>
+          </AddClassForm>
           }
           {this.state.formPhase === 1 && 
-            <div>
-              <h4>Students of {this.state.className}</h4>
+            <AddStudentForm>
+              <ClassTitle>Students of {this.state.className}</ClassTitle>
               {
                 this.state.newClass.map((student, i) => {
-                  return <div key={i}>{`${student.firstName} ${student.lastName}`}</div>
+                  return <StudentItem key={i}>{`${student.firstName} ${student.lastName}`}</StudentItem>
                 })
               }
               <StudentForm onSubmit={this.addStudent}>
                 <StudentInput state={this.state} handleChange={this.handleInputChange}/>
-                <input type="submit" value="Add Student" />
-                <input type="button" value="I'm done adding students" onClick={this.postClass}/>
+                <Button2 type="submit" value="Add Student" />
+                <Button3 type="button" value="I'm done adding students" onClick={this.postClass}/>
               </StudentForm>
-            </div>
+            </AddStudentForm>
           }
-        </div>
+        </AddStudents>
       )
     } 
 }

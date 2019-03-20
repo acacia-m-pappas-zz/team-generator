@@ -9,9 +9,7 @@ const GroupContainer = styled.div`
   align-items: center;
 `;
 
-const TaDa = styled.h4`
-
-`;
+const TaDa = styled.h4``;
 
 const Group = styled.div`
   border: solid grey 1px; 
