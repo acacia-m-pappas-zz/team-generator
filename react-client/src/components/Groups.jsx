@@ -9,22 +9,36 @@ const GroupContainer = styled.div`
   align-items: center;
 `;
 
+const TaDa = styled.h4`
+
+`;
+
+const Group = styled.div`
+  border: solid grey 1px; 
+  margin: 5px; 
+  padding: 5px; 
+  border-radius: 5px;
+`;
+
+const Student = styled.div`
+  margin: 1px; 
+`;
+
 const Groups = (props) => {
   return (
     <GroupContainer>
-      <h4>Your Groups</h4>
+      <TaDa>Here are your groups!</TaDa>
       {props.groups.map((group, index) => {
         return (
-          <div key={index}>
-            <ul></ul>
+          <Group key={index}>
             {
               group.map((subitem, i) => {
                 return (
-                  <div key={i}>{`${subitem.firstName} ${subitem.lastName}`}</div>
+                  <Student key={i}>{`${subitem.firstName} ${subitem.lastName}`}</Student>
                 )
               })
             }
-          </div>
+          </Group>
         )
       })
       }

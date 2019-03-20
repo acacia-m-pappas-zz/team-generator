@@ -34,7 +34,7 @@ const AddClass = styled.button`
   border-radius: 3px;
   :hover {
     background-color: #993399;
-    color: grey;
+    color: white;
   }
 `;
 

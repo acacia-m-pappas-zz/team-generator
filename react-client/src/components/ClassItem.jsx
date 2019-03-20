@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const Class = styled.div`
   color: grey;
   font-size: 1em;
-  margin: 1px;
-  padding: 0.40em 1.3em;
+  margin: 4px;
+  padding: 0.3em 1.3em;
   border: 2px solid grey;
   border-radius: 3px;
   :hover {

@@ -4,9 +4,43 @@ import styled from 'styled-components';
 const SplitInputContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
+`;
+
+const Input = styled.input`
+  width: 50px;
+  font-size: 14px;
+  display: flex;
+  border-radius: 3px;
+  margin: 5px; 
+`;
+
+const List = styled.ul`
+  list-style: none;
+  border: solid grey 1px; 
+  margin: 5px; 
+  padding: 5px; 
+  border-radius: 5px;
+`;
+
+const Student = styled.li`
+  list-style: none;
+  margin: 1px; 
+`;
+
+const Button = styled.input`
+  color: white;
+  background-color: grey; 
+  font-size: 1em;
+  margin: 4px;
+  padding: 0.3em 1em;
+  border-radius: 3px;
+  :hover {
+    background-color: #993399;
+    color: white;
+  }
 `;
 
 class SplitInput extends React.Component {
@@ -27,24 +61,23 @@ class SplitInput extends React.Component {
   }
 
   render() {
-    console.log(this.props.students)
     if(this.props.students.length === undefined){
       <div>please add a class</div>
     } else {
       return (
         <SplitInputContainer>
-          <h4>Split into groups of </h4>
+          <h4>Split into groups of: </h4>
           <form >
             <label>
-              <input type="number" name="groupSize" value={this.state.groupSize} min="2" max="10" onChange={this.changeHandler} />
+              <Input type="number" name="groupSize" value={this.state.groupSize} min="2" max="10" onChange={this.changeHandler} />
             </label>
-            <input type="button" value="GO" onClick={() => { this.props.groupBy(this.state.groupSize) }} />
+            <Button type="button" value="GO" onClick={() => { this.props.groupBy(this.state.groupSize) }} />
           </form>
-          <div>
+          <List>
             {this.props.students.map((student, i) => {
-              return <div key={i} >{`${student.firstName} ${student.lastName}`}</div>
+              return <Student key={i} >{`${student.firstName} ${student.lastName}`}</Student>
             })}
-          </div>
+          </List>
         </SplitInputContainer>
       )
     }
