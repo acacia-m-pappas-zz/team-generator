@@ -70,7 +70,6 @@ class StudentInputForm extends React.Component {
   }
 
   render () {
-    console.log('state within StudentInputForm', this.state)
     return (
       <StudentForm onSubmit={this.onSubmit}>
         <label>First Name: 
